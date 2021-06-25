@@ -1,11 +1,11 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+const http = require('http');
+const app = require('./app/app');
+const port = 8000;
 
-app.get('/', (req,res)=>{
-    res.send("Hello from server")
-})
 
-app.listen(port, () =>{
-    console.log('listening to the port ${port}')
-})
+const server = http.createServer(app);
+if(server){
+console.log("Server is running on port :: ",port );
+}
+
+server.listen(port);
